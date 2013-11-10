@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BitFighter: Create as much memory as possible!</title>
+		<script src="main.js"></script>
+	</head>
+	<body onLoad="main()" >
+	
+		<div style="width: 800px; display: table; table-layout: fixed; border: 5px solid #ccc; margin:0 auto;">
+		
+			<h1 style="text-align:center;">BitFighter: Build better programs to make more bits!</h1>
+			
+			<table style="width: 96%; display: table; table-layout: fixed;margin:0 auto;">
+				<tr>
+					<td>
+						<h3>Description:</h3>
+						<p>This game is educational; it is to show you the power of exponential growth and a bit about computer history / memory sizes. It's also an experiment in UX design: super-simple game, but should have top-notch UI. Should look info-graphic, full-screen vfx</p>
+					</td>
+					<td>
+						<h3>Bits:</h3>
+						<p>A single bit is a binary-digit of information. You want to produce as many of these as fast as possible.</p>
+					</td>
+					<td>
+						<h3>Generators:</h3>
+						<p>Your goal is to build bit-generating entities, so you can build even better generators, all to help you generate even *more* bits!</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Buying / Selling:</h3>
+						<p>Click on '+' to buy and '-' to sell a generator. Selling only gives you back 50% of the original cost of purchase.</p>
+					</td>
+					<td>
+						<h3>Generator Price:</h3>
+						<p>The price for each generator grows exponentially the more you buy.</p>
+					</td>
+					<td>
+						<h3>Todo / Ideas:</h3>
+						<p>Have the user follow a time-table from 1800s to future, where major world events effect your generation (WW2 Eniac, silicone transitor, etc.). What about a formal win condition?</p>
+					</td>
+				</tr>
+			</table>
+			
+			<div style="text-align:center;">
+				<h2 style="font-style:italic; margin-bottom:-2px;">You have <div id="Ui.BitsGenerated">0 bits</div></h2>
+				<div style="font-style:italic; margin-bottom:-2px;">(That's <div id="Ui.BitsPerSec">0</div> Bits-Per-Second)</div>
+				<button type="button" onclick="UI_GenerateBit()">Generate 1 Bit</button>
+			</div>
+			<table style="width: 90%; display: table; table-layout: fixed; border: 5px solid #aaa; margin:0 auto;">
+				<tr>
+					<td>Mechanical Switch: Produces 1 bit per second</td>
+					<td style="text-align:right;"><button type="button" id="Ui.Buy.0">Buy</button><button type="button" id="Ui.Sell.0">Sell</button> You have: <div id="Ui.Bought.0">0</div>, Cost: <div id="Ui.Cost.0">0</div></td>
+				</tr>
+				<tr>
+					<td>Vacuum Tube: Produces 1 nibble (4 bits) per second</td>
+					<td style="text-align:right;"><button type="button" id="Ui.Buy.1">Buy</button><button type="button" id="Ui.Sell.1">Sell</button> You have: <div id="Ui.Bought.1">0</div>, Cost: <div id="Ui.Cost.1">0</div></td>
+				</tr>
+				<tr>
+					<td>Silicone Transistor: Produces 1 byte (8 bits) per second</td>
+					<td style="text-align:right;"><button type="button" id="Ui.Buy.2">Buy</button><button type="button" id="Ui.Sell.2">Sell</button> You have: <div id="Ui.Bought.2">0</div>, Cost: <div id="Ui.Cost.2">0</div></td>
+				</tr>
+				<tr>
+					<td>Integrated Circuits: Produces 1 kilobyte (1024 bytes) per second</td>
+					<td style="text-align:right;"><button type="button" id="Ui.Buy.3">Buy</button><button type="button" id="Ui.Sell.3">Sell</button> You have: <div id="Ui.Bought.3">0</div>, Cost: <div id="Ui.Cost.3">0</div></td>
+				</tr>
+				<tr>
+					<td>8086 Processor: Produces 1 megabyte (1024 kilobytes) per second</td>
+					<td style="text-align:right;"><button type="button" id="Ui.Buy.4">Buy</button><button type="button" id="Ui.Sell.4">Sell</button> You have: <div id="Ui.Bought.4">0</div>, Cost: <div id="Ui.Cost.4">0</div></td>
+				</tr>
+				<tr>
+					<td>Quantum Computer: Produces 1 gigabyte (1024 megabytes) per second</td>
+					<td style="text-align:right;"><button type="button" id="Ui.Buy.5">Buy</button><button type="button" id="Ui.Sell.5">Sell</button> You have: <div id="Ui.Bought.5">0</div>, Cost: <div id="Ui.Cost.5">0</div></td>
+				</tr>
+				<tr>
+					<td>P-NP Relationship Evaluator Machine: Produces 1 terabyte (1000 gigabytes) per second</td>
+					<td style="text-align:right;"><button type="button" id="Ui.Buy.6">Buy</button><button type="button" id="Ui.Sell.6">Sell</button> You have: <div id="Ui.Bought.6">0</div>, Cost: <div id="Ui.Cost.6">0</div></td>
+				</tr>
+				<tr>
+					<td>The Matrix: Produces 1 petabyte (1000 terabyte) per second</td>
+					<td style="text-align:right;"><button type="button" id="Ui.Buy.7">Buy</button><button type="button" id="Ui.Sell.7">Sell</button> You have: <div id="Ui.Bought.7">0</div>, Cost: <div id="Ui.Cost.7">0</div></td>
+				</tr>
+			</table>
+			
+		</div>
+		
+	</body>
+</html>	
