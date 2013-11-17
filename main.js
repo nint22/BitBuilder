@@ -25,24 +25,22 @@ var g_generatorBought = [ 0, 0, 0, 0, 0, 0, 0, 0 ];
 
 /*** Main Application Entry Point ***/
 
-function main()
+// JQuery application entry-point
+$(document).ready(function()
 {
 	// Query the UI and bind on-click events
-	var UIElement_BitsGenerated = document.getElementById( "Ui.BitsGenerated" );
-	var UIElement_BitsPerSec = document.getElementById( "Ui.BitsPerSec");
+	var UIElement_BitsGenerated = document.getElementById( "Ui_BitsGenerated" );
+	var UIElement_BitsPerSec = document.getElementById( "Ui_BitsPerSec");
 	
 	var UIElement_BoughtElement = new Array(8);
 	
 	// Set buy/sell callbacks
 	for(var i = 0; i < g_generatorCount; i++)
 	{
-		var UIElementBuy = document.getElementById( "Ui.Buy." + i );
-		var UIElementSell = document.getElementById( "Ui.Sell." + i );
+		$("#Ui_Buy_" + i).click( function() { var index = i; return function() { UI_BuyGenerator( index ); }; }() );
+		$("#Ui_Sell_" + i).click( function() { var index = i; return function() { UI_SellGenerator( index ); }; }() );
 		
-		UIElementBuy.onclick = (function() { var index = i; return function() { UI_BuyGenerator( index ); }; })();
-		UIElementSell.onclick = (function() { var index = i; return function() { UI_SellGenerator( index ); }; })();
-		
-		UIElement_BoughtElement[i] = document.getElementById( "Ui.Bought." + i );
+		UIElement_BoughtElement[i] = $("#Ui_Bought_" + i);
 	}
 	
 	// Start our update loop, updates 10 x a second
@@ -62,7 +60,35 @@ function main()
 		UIElement_BitsPerSec.innerText = UI_HumanReadableByteCount( parseInt( addedBits / g_updateSpeed) ); // Convert back to per-sec, not sec-fraction
 		
 	}, g_updateSpeed * 1000);
-}
+	
+	// Build graph
+	var r = Raphael("holder"),
+	txtattr = { font: "12px sans-serif" };
+
+	var x = [], y = [], y2 = [], y3 = [];
+
+	for (var i = 0; i < 1e6; i++)
+	{
+		x[i] = i * 10;
+		y[i] = (y[i - 1] || 0) + (Math.random() * 7) - 3;
+		y2[i] = (y2[i - 1] || 150) + (Math.random() * 7) - 3.5;
+		y3[i] = (y3[i - 1] || 300) + (Math.random() * 7) - 4;
+	}
+	
+	r.text(160, 10, "Simple Line Chart (1000 points)").attr(txtattr);
+	
+	r.linechart(10, 10, 300, 220, x, [y.slice(0, 1e3), y2.slice(0, 1e3), y3.slice(0, 1e3)]).hoverColumn(function () {
+		this.set = r.set(
+			r.circle(this.x, this.y[0]),
+			r.circle(this.x, this.y[1]),
+			r.circle(this.x, this.y[2])
+		);
+		}, function () {
+			this.set.remove();
+		}
+	);
+
+});
 
 /*** User Interface Functions ***/
 

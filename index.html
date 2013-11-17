@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>BitFighter: Create as much memory as possible!</title>
-		<script src="main.js"></script>
-	</head>
-	<body onLoad="main()" >
-	
-		<div style="width: 800px; display: table; table-layout: fixed; border: 5px solid #ccc; margin:0 auto;">
+		<title>Bit Builder: The History of </title>
 		
-			<h1 style="text-align:center;">BitFighter: Build better programs to make more bits!</h1>
-			
+		<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+		<link href="http://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" type="text/css" />
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+		<script src="raphael-min.js"></script>
+		<script src="g.raphael-min.js"></script>
+		<script src="g.line-min.js"></script>
+		<script src="main.js"></script>
+		
+	</head>
+	<body style="background-image:url('./Images/bg.png'); background-repeat:repeat;">
+	
+		<div style="color: #333; width: 896px; margin: 0 auto; text-align: left; padding: .5em 32px 0; position: relative;">
+			<div style="background-image:url('Images/TitleRibbonEdge.png'); background-repeat:repeat-x; height: 128px;"></div>
+			<h1 style="text-align:center; font-family: 'Unica One', cursive; background-image:url('Images/TitleRibbon.png'); background-repeat:repeat-x; height: 128px;"><img src="./Images/Gear.png"/ /> BitFighter: Build better programs to make more bits!</h1>
+		</div>
+		
+		<div style="background: #eee; color: #333; width: 896px; margin: 0 auto; text-align: left; padding: .5em 32px 0; position: relative;">
+		
 			<table style="width: 96%; display: table; table-layout: fixed;margin:0 auto;">
 				<tr>
 					<td>
@@ -41,43 +54,50 @@
 				</tr>
 			</table>
 			
+			<div class="raphael" id="g.raphael.dmitry.baranovskiy.com">
+				<div id="holder"></div>
+				<p>
+					Demo of <a href="http://g.raphaeljs.com/">gRaphaël</a> JavaScript library.
+				</p>
+			</div>
+			
 			<div style="text-align:center;">
-				<h2 style="font-style:italic; margin-bottom:-2px;">You have <div id="Ui.BitsGenerated">0 bits</div></h2>
-				<div style="font-style:italic; margin-bottom:-2px;">(That's <div id="Ui.BitsPerSec">0</div> Bits-Per-Second)</div>
-				<button type="button" onclick="UI_GenerateBit()">Generate 1 Bit</button>
+				<h2 style="font-style:italic; margin-bottom:-2px;">You have <div id="Ui_BitsGenerated">0 bits</div></h2>
+				<div style="font-style:italic; margin-bottom:-2px;">(That's <div id="Ui_BitsPerSec">0</div> Bits-Per-Second)</div>
+				<button onclick="UI_GenerateBit()">Generate 1 Bit</button>
 			</div>
 			<table style="width: 90%; display: table; table-layout: fixed; border: 5px solid #aaa; margin:0 auto;">
 				<tr>
 					<td>Mechanical Switch: Produces 1 bit per second</td>
-					<td style="text-align:right;"><button type="button" id="Ui.Buy.0">Buy</button><button type="button" id="Ui.Sell.0">Sell</button> You have: <div id="Ui.Bought.0">0</div>, Cost: <div id="Ui.Cost.0">0</div></td>
+					<td style="text-align:right;"><button id="Ui_Buy_0">Buy</button><button id="Ui_Sell_0">Sell</button> You have: <div id="Ui_Bought_0">0</div>, Cost: <div id="Ui_Cost_0">0</div></td>
 				</tr>
 				<tr>
-					<td>Vacuum Tube: Produces 1 nibble (4 bits) per second</td>
-					<td style="text-align:right;"><button type="button" id="Ui.Buy.1">Buy</button><button type="button" id="Ui.Sell.1">Sell</button> You have: <div id="Ui.Bought.1">0</div>, Cost: <div id="Ui.Cost.1">0</div></td>
+					<td id="SanityTest">Vacuum Tube: Produces 1 nibble (4 bits) per second</td>
+					<td style="text-align:right;"><button id="Ui_Buy_1">Buy</button><button id="Ui_Sell_1">Sell</button> You have: <div id="Ui_Bought_1">0</div>, Cost: <div id="Ui_Cost_1">0</div></td>
 				</tr>
 				<tr>
 					<td>Silicone Transistor: Produces 1 byte (8 bits) per second</td>
-					<td style="text-align:right;"><button type="button" id="Ui.Buy.2">Buy</button><button type="button" id="Ui.Sell.2">Sell</button> You have: <div id="Ui.Bought.2">0</div>, Cost: <div id="Ui.Cost.2">0</div></td>
+					<td style="text-align:right;"><button id="Ui_Buy_2">Buy</button><button id="Ui_Sell_2">Sell</button> You have: <div id="Ui_Bought_2">0</div>, Cost: <div id="Ui_Cost_2">0</div></td>
 				</tr>
 				<tr>
 					<td>Integrated Circuits: Produces 1 kilobyte (1024 bytes) per second</td>
-					<td style="text-align:right;"><button type="button" id="Ui.Buy.3">Buy</button><button type="button" id="Ui.Sell.3">Sell</button> You have: <div id="Ui.Bought.3">0</div>, Cost: <div id="Ui.Cost.3">0</div></td>
+					<td style="text-align:right;"><button id="Ui_Buy_3">Buy</button><button id="Ui_Sell_3">Sell</button> You have: <div id="Ui_Bought_3">0</div>, Cost: <div id="Ui_Cost_3">0</div></td>
 				</tr>
 				<tr>
 					<td>8086 Processor: Produces 1 megabyte (1024 kilobytes) per second</td>
-					<td style="text-align:right;"><button type="button" id="Ui.Buy.4">Buy</button><button type="button" id="Ui.Sell.4">Sell</button> You have: <div id="Ui.Bought.4">0</div>, Cost: <div id="Ui.Cost.4">0</div></td>
+					<td style="text-align:right;"><button id="Ui_Buy_4">Buy</button><button id="Ui_Sell_4">Sell</button> You have: <div id="Ui_Bought_4">0</div>, Cost: <div id="Ui_Cost_4">0</div></td>
 				</tr>
 				<tr>
 					<td>Quantum Computer: Produces 1 gigabyte (1024 megabytes) per second</td>
-					<td style="text-align:right;"><button type="button" id="Ui.Buy.5">Buy</button><button type="button" id="Ui.Sell.5">Sell</button> You have: <div id="Ui.Bought.5">0</div>, Cost: <div id="Ui.Cost.5">0</div></td>
+					<td style="text-align:right;"><button id="Ui_Buy_5">Buy</button><button id="Ui_Sell_5">Sell</button> You have: <div id="Ui_Bought_5">0</div>, Cost: <div id="Ui_Cost_5">0</div></td>
 				</tr>
 				<tr>
 					<td>P-NP Relationship Evaluator Machine: Produces 1 terabyte (1000 gigabytes) per second</td>
-					<td style="text-align:right;"><button type="button" id="Ui.Buy.6">Buy</button><button type="button" id="Ui.Sell.6">Sell</button> You have: <div id="Ui.Bought.6">0</div>, Cost: <div id="Ui.Cost.6">0</div></td>
+					<td style="text-align:right;"><button id="Ui_Buy_6">Buy</button><button id="Ui_Sell_6">Sell</button> You have: <div id="Ui_Bought_6">0</div>, Cost: <div id="Ui_Cost_6">0</div></td>
 				</tr>
 				<tr>
 					<td>The Matrix: Produces 1 petabyte (1000 terabyte) per second</td>
-					<td style="text-align:right;"><button type="button" id="Ui.Buy.7">Buy</button><button type="button" id="Ui.Sell.7">Sell</button> You have: <div id="Ui.Bought.7">0</div>, Cost: <div id="Ui.Cost.7">0</div></td>
+					<td style="text-align:right;"><button id="Ui_Buy_7">Buy</button><button id="Ui_Sell_7">Sell</button> You have: <div id="Ui_Bought_7">0</div>, Cost: <div id="Ui_Cost_7">0</div></td>
 				</tr>
 			</table>
 			
